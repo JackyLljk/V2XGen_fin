@@ -1,5 +1,6 @@
 # V2XGen
 Repository provides the code of V2XGen project.
+
 [website]()
 
 ## Installation
@@ -13,9 +14,9 @@ You need to check the [V2V4real](mobility-lab.seas.ucla.edu/v2v4real) website an
 
 #### 2. Format conversion
 
-In order to be compatible with the semantic segmentation model, you need to convert the .pcd data format to .bin, only (x,y,z) needs to be converted here.
+In order to be compatible with the semantic segmentation model, you need to convert the `.pcd` data format to `.bin`, only `(x,y,z)` needs to be converted here.
 
-You can refer to the rq_tools.py in the path for format conversion.
+You can refer to the `rq_tools.py` in the path for format conversion.
 
 #### 3. Semantic segmentation
 
@@ -93,7 +94,7 @@ $ python examples/v2xgen_demo.py -s ${scene_id} -t ${transform}
 - scene_id in 1-9
 -  choose transformation of insert, delete, translation, scaling and rotation.
 
-Our five transform operations are integrated from insert and delete operations, you can refer to obj_transformation_demo.py to customize the transformation functions.
+Our five transform operations are integrated from insert and delete operations, you can refer to `obj_transformation_demo.py` to customize the transformation functions.
 
 
 
@@ -140,7 +141,7 @@ $ python rq2/rq2_gen.py -m ${times}		# times in [1, 2, 3]
 
 #### 3. Visulize
 
-If you want to visualize the transformation result, you need to comment out the visual annotations of the core/obj_insert.py and core/delete.py.
+If you want to visualize the transformation result, you need to comment out the visual annotations of the `core/obj_insert.py` and `core/delete.py`.
 
 ```shell
 $ python rq2_rq2_vis.py -s ${scene_id}
