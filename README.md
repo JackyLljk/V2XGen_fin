@@ -10,7 +10,7 @@ All experiments are conducted on a server with an Intel i7-10700K CPU(3.80 GHz),
 ### Init Dataset
 #### 1. Download dataset
 
-You need to check the [V2V4real](mobility-lab.seas.ucla.edu/v2v4real) website and download the test datasets test1, test2, test3.
+You need to check the [V2V4real](https://github.com/mobility-lab.seas.ucla.edu/v2v4real) website and download the test datasets test1, test2, test3.
 
 #### 2. Format conversion
 
@@ -20,7 +20,7 @@ You can refer to the `rq_tools.py` in the path for format conversion.
 
 #### 3. Semantic segmentation
 
-We used the [SalsaNext](github.com/TiagoCortinhal/SalsaNext) semantic segmentation model to process the point cloud data.
+We used the [SalsaNext](https://github.com/TiagoCortinhal/SalsaNext) semantic segmentation model to process the point cloud data.
 
 #### Dataset folder structure
 
@@ -71,7 +71,7 @@ pip install -r requirements.txt
 
 ### Model Donwload
 
-You need to download the cooperative 3D detection models [here](github.com/ucla-mobility/V2V4Real?tag=readme-ov-file#benchmark), and unzip them in the model folder.
+You need to download the cooperative 3D detection models [here](https://github.com/ucla-mobility/V2V4Real?tag=readme-ov-file#benchmark), and unzip them in the model folder.
 
 ```shell
 model
