@@ -7,7 +7,37 @@ Repository provides the code of V2XGen project.
 
 All experiments are conducted on a server with an Intel i7-10700K CPU(3.80 GHz), 32 GB RAM, and an NVIDIA GeForce RTX 4070 GPU  (12GB VRAM).
 
+### Basice Dependency
+
+Create conda environment, python >= 3.7.
+
+```shell
+conda create -n v2xgen python=3.7
+conda activate v2xgen
+```
+
+Pytorch installation, pytorch >= 1.12.0
+
+```shell
+conda install pytorch==1.12.0 torchvision=0.13.0 cudatoolkit=11.3 -c pytorch -c conda-forge
+```
+
+spconv 2.x installation
+
+```shell
+pip install spconv-cu113
+```
+
+Run the following command to install the dependencies.
+
+```shell
+pip install -r requirements.txt
+```
+
+
+
 ### Init Dataset
+
 #### 1. Download dataset
 
 You need to check the [V2V4real](https://github.com/mobility-lab.seas.ucla.edu/v2v4real) website and download the test datasets test1, test2, test3.
@@ -40,33 +70,6 @@ The final dataset folder structure should as follows:
     ├── road_pcd
     ├── pcd
     └── velodyne
-```
-
-### Basice Dependency
-
-Create conda environment, python >= 3.7.
-
-```shell
-conda create -n v2xgen python=3.7
-conda activate v2xgen
-```
-
-Pytorch installation, pytorch >= 1.12.0
-
-```shell
-conda install pytorch==1.12.0 torchvision=0.13.0 cudatoolkit=11.3 -c pytorch -c conda-forge
-```
-
-spconv 2.x installation
-
-```shell
-pip install spconv-cu113
-```
-
-Run the following command to install the dependencies.
-
-```shell
-pip install -r requirements.txt
 ```
 
 ### Model Donwload
