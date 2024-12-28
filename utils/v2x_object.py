@@ -26,7 +26,7 @@ class V2XInfo:
         path_info = self.load_data_path()
 
         # read pcd data
-        bg_pc = pcd_to_np(path_info['bg_path'])         # read bg pcd from .pcd files
+        bg_pc = pcd_to_np(path_info['bg_path'])         # read background pcd from .pcd files
         road_pc, non_road_pc, road_label = road_split(bg_pc[:, :3], path_info['road_path'],
                                                       path_info['road_label_path'])
 
