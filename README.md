@@ -1,7 +1,8 @@
 # V2XGen
 Repository provides the code of V2XGen project.
-
 [website]()
+
+
 
 ## Installation
 
@@ -34,23 +35,44 @@ Run the following command to install the dependencies.
 pip install -r requirements.txt
 ```
 
-
-
 ### Init Dataset
 
 #### 1. Download dataset
 
-You need to check the [V2V4real](https://github.com/mobility-lab.seas.ucla.edu/v2v4real) website and download the test datasets test1, test2, test3.
+You need to check the [V2V4real](mobility-lab.seas.ucla.edu/v2v4real) website and download the test datasets test1, test2, test3.
 
-#### 2. Format conversion
+Please place the unzipped files in a folder with the following folder structure: 
 
-In order to be compatible with the semantic segmentation model, you need to convert the `.pcd` data format to `.bin`, only `(x,y,z)` needs to be converted here.
+```
+.
+├── testoutput_CAV_data_2022-03-15-09-54-40_0
+├── testoutput_CAV_data_2022-03-15-10-29-43_3
+├── testoutput_CAV_data_2022-03-15-10-29-43_4
+├── testoutput_CAV_data_2022-03-17-10-50-46_0
+├── testoutput_CAV_data_2022-03-17-10-50-46_1
+├── testoutput_CAV_data_2022-03-17-11-02-23_1
+├── testoutput_CAV_data_2022-03-17-11-02-23_2
+├── testoutput_CAV_data_2022-03-17-11-51-42_0
+└── testoutput_CAV_data_2022-03-21-09-35-07_7
+```
 
-You can refer to the `rq_tools.py` in the path for format conversion.
 
-#### 3. Semantic segmentation
 
-We used the [SalsaNext](https://github.com/TiagoCortinhal/SalsaNext) semantic segmentation model to process the point cloud data.
+#### 2. Init Dataset of V2XGen
+
+In order to be compatible with the semantic segmentation model, you need to convert the .pcd data format to .bin.
+
+We used the [SalsaNext](github.com/TiagoCortinhal/SalsaNext) semantic segmentation model to process the point cloud data.
+
+
+
+```shell
+python ./dataset_init.py -d ${dataset_path}
+```
+
+You can also choose other semantic segmentation models.
+
+
 
 #### Dataset folder structure
 
@@ -72,9 +94,11 @@ The final dataset folder structure should as follows:
     └── velodyne
 ```
 
+### 
+
 ### Model Donwload
 
-You need to download the cooperative 3D detection models [here](https://github.com/ucla-mobility/V2V4Real?tag=readme-ov-file#benchmark), and unzip them in the model folder.
+You need to download the cooperative 3D detection models [here](github.com/ucla-mobility/V2V4Real?tag=readme-ov-file#benchmark), and unzip them in the model folder.
 
 ```shell
 model
@@ -85,6 +109,8 @@ model
 ├── PointPillar_V2VNet
 └── PointPillar_V2XViT
 ```
+
+
 
 ## Quick Start
 
@@ -97,7 +123,7 @@ $ python examples/v2xgen_demo.py -s ${scene_id} -t ${transform}
 - scene_id in 1-9
 -  choose transformation of insert, delete, translation, scaling and rotation.
 
-Our five transform operations are integrated from insert and delete operations, you can refer to `obj_transformation_demo.py` to customize the transformation functions.
+Our five transform operations are integrated from insert and delete operations, you can refer to obj_transformation_demo.py to customize the transformation functions.
 
 
 
@@ -144,7 +170,7 @@ $ python rq2/rq2_gen.py -m ${times}		# times in [1, 2, 3]
 
 #### 3. Visulize
 
-If you want to visualize the transformation result, you need to comment out the visual annotations of the `core/obj_insert.py` and `core/delete.py`.
+If you want to visualize the transformation result, you need to comment out the visual annotations of the core/obj_insert.py and core/delete.py.
 
 ```shell
 $ python rq2_rq2_vis.py -s ${scene_id}

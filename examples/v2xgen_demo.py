@@ -17,7 +17,7 @@ def demo_parser():
 
 
 def v2xgen_demo(transformation='insert', scene=1):
-    dataset_config = Config(dataset="v2x_dataset", scene=scene)
+    dataset_config = Config(scene=scene)
     begin_index = dataset_config.begin_index
     data_num = dataset_config.scene_data_num
 
