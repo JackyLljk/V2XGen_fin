@@ -98,7 +98,7 @@ def rq1_frd(method):
         OP_TIMES = int(method)
 
         # load dataset config
-        dataset_config = Config(dataset="v2v_test", scene=i)
+        dataset_config = Config(dataset="v2x_dataset", scene=i)
         dataset_config.v2x_dataset_saved_dir = \
             f"{dataset_config.dataset_root}/rq1/random_trans_M{OP_TIMES}"
         scene_data_num = dataset_config.scene_data_num

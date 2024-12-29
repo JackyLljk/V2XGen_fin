@@ -73,7 +73,8 @@ def road_split(pc, road_pc_path, road_label_path):
         
         road_pc = _pc_inter_valid.astype(np.float32)
         road_pc.astype(np.float32).tofile(pc_path, )
-    return road_pc,  _pc_non_road, labels
+
+    return road_pc, _pc_non_road, labels
 
 
 if __name__ == '__main__':

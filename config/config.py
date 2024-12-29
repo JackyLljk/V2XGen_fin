@@ -1,17 +1,22 @@
 import os
+import yaml
 
 
 class Config:
     """
     Dataset config
     """
-    def __init__(self, dataset="v2v_test", scene=1):
-        self.dataset_root = "/media/jlutripper/My Passport/v2x_dataset"
+    def __init__(self, dataset="v2x_dataset", scene=1):
+        with open("config/dataset_config.yml", "r") as config_file:
+            dataset_config = yaml.load(config_file, Loader=yaml.FullLoader)
+
+        self.dataset_root = dataset_config.get("dataset_path", "/${your dataset path}")
+
         self.select_data_num = 1993
         self.dataset = dataset
 
         # V2V4Real test dataset
-        if dataset == "v2v_test":
+        if dataset == "v2x_dataset":
             # select data scene
             index_dict = {
                 1: 147,
@@ -46,13 +51,13 @@ class Config:
         self.ego_road_split_pc_dir = f"{self.dataset_path}/0/road_pcd"
         self.ego_road_split_label_dir = f"{self.dataset_path}/0/predictions"
         self.ego_pc_dir = f"{self.dataset_path}/0/pcd"
-        self.ego_label_dir = f"{self.dataset_path}/0/labels"
+        self.ego_label_dir = f"{self.dataset_path}/0/yaml"
 
         # cooperative
         self.coop_road_split_pc_dir = f"{self.dataset_path}/1/road_pcd"
         self.coop_road_split_label_dir = f"{self.dataset_path}/1/predictions"
         self.coop_pc_dir = f"{self.dataset_path}/1/pcd"
-        self.coop_label_dir = f"{self.dataset_path}/1/labels"
+        self.coop_label_dir = f"{self.dataset_path}/1/yaml"
 
         self.v2x_dataset_saved_dir = f"{self.dataset_path}/"
 
